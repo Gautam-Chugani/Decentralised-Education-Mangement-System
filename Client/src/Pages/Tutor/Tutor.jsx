@@ -51,9 +51,9 @@ const Tutor = () => {
     setFormData({ ...FormData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (FormData.subject == "") {
+    if (FormData.subject === "") {
       return messageApi.open({
         type: "info",
         content: "Please select Subject",
@@ -61,43 +61,49 @@ const Tutor = () => {
       });
     }
     setLoading(true);
-    dispatch(tutorRegister(FormData))
-      .then((res) => {
-        if (res.msg === "User already registered") {
-          setLoading(false);
-          messageApi.open({
-            type: "info",
-            content: "User already registered",
-            duration: 3,
-          });
-        } else if (res.msg === "Tutor Registration failed") {
-          setLoading(false);
-          messageApi.open({
-            type: "error",
-            content: "Tutor Registration failed",
-            duration: 3,
-          });
-        } else {
-          setLoading(false);
-          setFormData(initialFormData);
-          onClose();
-          messageApi.open({
-            type: "success",
-            content: "Tutor Registered Successfully",
-            duration: 3,
-          });
-          messageApi.open({
-            type: "success",
-            content: "Password sent over mail.",
-            duration: 3,
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+    try {
+      const res = await dispatch(tutorRegister(FormData));
+      console.log(`This is res: ${res}`);
+      if (res.msg === "User already registered") {
+        setLoading(false);
+        messageApi.open({
+          type: "info",
+          content: "User already registered",
+          duration: 3,
+        });
+      } else if (res.msg === "Tutor Registration failed") {
+        setLoading(false);
+        messageApi.open({
+          type: "error",
+          content: "Tutor Registration failed",
+          duration: 3,
+        });
+      } else {
+        setLoading(false);
+        setFormData(initialFormData);
+        onClose();
+        messageApi.open({
+          type: "success",
+          content: "Tutor Registered Successfully",
+          duration: 3,
+        });
+        messageApi.open({
+          type: "success",
+          content: "Password sent over mail.",
+          duration: 3,
+        });
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log("Error during tutor registration:", error);
+      messageApi.open({
+        type: "error",
+        content: "An error occurred during registration",
+        duration: 3,
       });
+    }
   };
-
+  
   useEffect(() => {
     dispatch(getTutorData(filterTutor));
   }, [filterTutor]);
@@ -116,12 +122,12 @@ const Tutor = () => {
         {/* Filter by Subject */}
         <select style={{ width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto', marginTop: '20px', marginBottom: '10px' }} value={filterTutor} onChange={(e) => setFilterTutor(e.target.value)}>
           <option value="">Filter by Subject</option>
-          <option value="Maths">Maths</option>
-          <option value="Physics">Physics</option>
-          <option value="Chemistry">Chemistry</option>
+          <option value="DBMS">DBMS</option>
+          <option value="Operating System">Operating System</option>
+          <option value="Bussiness Management">Bussiness Management</option>
           <option value="Biology">Biology</option>
           <option value="Political science">Political science</option>
-          <option value="History">History</option>
+          <option value="CBNST">CBNST</option>
         </select>
         <div className="adminData">
           <section className="tableBody">
@@ -187,12 +193,12 @@ const Tutor = () => {
             />
             <select name="subject" onChange={(e) => handleInputChange(e)}>
               <option value="">Choose Subject</option>
-              <option value="Maths">Maths</option>
-              <option value="Physics">Physics</option>
-              <option value="Chemistry">Chemistry</option>
-              <option value="Biology">Biology</option>
-              <option value="Political science">Political science</option>
-              <option value="History">History</option>
+                 <option value="DBMS">DBMS</option>
+          <option value="Operating System">Operating System</option>
+          <option value="Bussiness Management">Bussiness Management</option>
+          <option value="Biology">Biology</option>
+          <option value="Political science">Political science</option>
+          <option value="CBNST">CBNST</option>
             </select>
             <input type="submit" value="Add Tutor" />
           </form>

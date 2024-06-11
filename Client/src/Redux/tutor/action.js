@@ -4,7 +4,6 @@ import url from "../../BackendURL.js";
 
 let token = localStorage.getItem("token");
 
-//register tutor
 export const tutorRegister = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.REGISTER_TUTOR_REQUEST });
@@ -23,8 +22,10 @@ export const tutorRegister = (data) => async (dispatch) => {
         message: "error",
       },
     });
+    return { msg: "Tutor Registration failed" }; // Return a consistent error message
   }
 };
+
 
 //get all tutors data
 export const getTutorData = (filter) => async (dispatch) => {

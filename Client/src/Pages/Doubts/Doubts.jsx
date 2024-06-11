@@ -146,13 +146,15 @@ const Doubts = () => {
 
         {/* Filter by Class */}
         <select style={{ width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto', marginTop: '20px', marginBottom: '10px' }} value={filterDoubt} onChange={(e) => setFilterDoubt(e.target.value)}>
-          <option value="">Filter by Class</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-          <option value={10}>10</option>
+          <option value="">Filter by Semester</option>
+          <option value={5}>1</option>
+              <option value={6}>2</option>
+              <option value={7}>3</option>
+              <option value={8}>4</option>
+              <option value={9}>5</option>
+              <option value={10}>6</option>
+              <option value={10}>7</option>
+              <option value={10}>8</option>
         </select>
         <h3>Unsolved Doubts</h3>
         <div className="contentData">
@@ -205,22 +207,24 @@ const Doubts = () => {
               onChange={(e) => handleFormChange(e)}
             />
             <select name="class" onChange={(e) => handleFormChange(e)}>
-              <option value="">Choose Class</option>
-              <option value={5}>5</option>
-              <option value={6}>6</option>
-              <option value={7}>7</option>
-              <option value={8}>8</option>
-              <option value={9}>9</option>
-              <option value={10}>10</option>
+              <option value="">Choose Semester</option>
+              <option value={5}>1</option>
+              <option value={6}>2</option>
+              <option value={7}>3</option>
+              <option value={8}>4</option>
+              <option value={9}>5</option>
+              <option value={10}>6</option>
+              <option value={10}>7</option>
+              <option value={10}>8</option>
             </select>
             <select name="subject" onChange={(e) => handleFormChange(e)}>
               <option value="">Choose Subject</option>
-              <option value="Maths">Maths</option>
-              <option value="Physics">Physics</option>
-              <option value="Chemistry">Chemistry</option>
-              <option value="Biology">Biology</option>
-              <option value="Political science">Political science</option>
-              <option value="History">History</option>
+              <option value="DBMS">DBMS</option>
+          <option value="Operating System">Operating System</option>
+          <option value="Bussiness Management">Bussiness Management</option>
+          <option value="Biology">Biology</option>
+          <option value="Political science">Political science</option>
+          <option value="CBNST">CBNST</option>
             </select>
           </form>
           {size ? (

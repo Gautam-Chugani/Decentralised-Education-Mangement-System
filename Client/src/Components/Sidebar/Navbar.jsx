@@ -149,11 +149,11 @@ const Navbar = ({ children }) => {
             {userType == "Student" ? (
               premium == "false" ? (
                 <Link href="/" className="nav-link">
-                  🔥 Access all features with premium ! <span>Buy now !</span>
+                  <span></span>
                 </Link>
-              ) : (
-                "🔥You are a premium member !"
-              )
+              ) : 
+                ""
+              
             ) : (
               <Link href="/" className="nav-link">
                 🔥 Welcome to LMS !

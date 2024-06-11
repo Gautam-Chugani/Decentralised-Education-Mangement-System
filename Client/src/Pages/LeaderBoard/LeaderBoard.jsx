@@ -41,13 +41,13 @@ const LeaderBoard = () => {
 
       {/* Filter by Class */}
       <select style={{ width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto', marginTop: '20px', marginBottom: '10px' }} value={filterLeaderboard} onChange={(e) => setFilterLeaderboard(e.target.value)}>
-        <option value="">Filter by Class</option>
-        <option value={5}>5</option>
-        <option value={6}>6</option>
-        <option value={7}>7</option>
-        <option value={8}>8</option>
-        <option value={9}>9</option>
-        <option value={10}>10</option>
+        <option value="">Filter by Semester</option>
+        <option value={5}>1</option>
+        <option value={6}>2</option>
+        <option value={7}>3</option>
+        <option value={8}>4</option>
+        <option value={9}>5</option>
+        <option value={10}>6</option>
       </select>
 
       <div className="leaderboardData">
@@ -58,7 +58,7 @@ const LeaderBoard = () => {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Class</th>
+                <th>Semester</th>
                 <th>Quiz attended</th>
                 <th>Points</th>
               </tr>

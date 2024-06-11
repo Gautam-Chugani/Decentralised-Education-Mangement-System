@@ -116,13 +116,15 @@ const Student = () => {
 
         {/* Filter by Class */}
         <select style={{ width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto', marginTop: '20px', marginBottom:'10px' }} value={filterStudent} onChange={(e) => setFilterStudent(e.target.value)}>
-          <option value="">Filter by Class</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-          <option value={10}>10</option>
+          <option value="">Filter by Semester</option>
+              <option value={5}>1</option>
+              <option value={6}>2</option>
+              <option value={7}>3</option>
+              <option value={8}>4</option>
+              <option value={9}>5</option>
+              <option value={10}>6</option>
+              <option value={10}>7</option>
+              <option value={10}>8</option>
         </select>
         <div className="adminData">
           <section className="tableBody">
@@ -131,7 +133,7 @@ const Student = () => {
                 <tr>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Class</th>
+                  <th>Semester</th>
                   <th>Access</th>
                   <th>Edit</th>
                   <th>Delete</th>
@@ -187,13 +189,15 @@ const Student = () => {
               onChange={(e) => handleInputChange(e)}
             />
             <select name="class" onChange={(e) => handleInputChange(e)}>
-              <option value="">Choose Class</option>
-              <option value={5}>5</option>
-              <option value={6}>6</option>
-              <option value={7}>7</option>
-              <option value={8}>8</option>
-              <option value={9}>9</option>
-              <option value={10}>10</option>
+              <option value="">Choose Semester</option>
+              <option value={5}>1</option>
+              <option value={6}>2</option>
+              <option value={7}>3</option>
+              <option value={8}>4</option>
+              <option value={9}>5</option>
+              <option value={10}>6</option>
+              <option value={10}>7</option>
+              <option value={10}>8</option>
             </select>
             <input type="submit" value="Add Student" />
           </form>

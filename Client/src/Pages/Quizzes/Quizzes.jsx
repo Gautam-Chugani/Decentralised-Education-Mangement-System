@@ -177,13 +177,13 @@ const Quizzes = () => {
         
         {/* Filter by Class */}
         <select style={{ width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto', marginTop: '20px', marginBottom:'10px' }} value={filterQuiz} onChange={(e) => setFilterQuiz(e.target.value)}>
-          <option value="">Filter by Class</option>
+          <option value="">Filter by Semester</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
           <option value={5}>5</option>
           <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-          <option value={10}>10</option>
         </select>
         <div className="quizData">
           {quiz?.map((data, i) => {
@@ -225,22 +225,22 @@ const Quizzes = () => {
               onChange={(e) => handleFormChange(e)}
             />
             <select name="class" onChange={(e) => handleFormChange(e)}>
-              <option value="">Choose Class</option>
-              <option value={5}>5</option>
-              <option value={6}>6</option>
-              <option value={7}>7</option>
-              <option value={8}>8</option>
-              <option value={9}>9</option>
-              <option value={10}>10</option>
+              <option value="">Choose Semester</option>
+              <option value={5}>1</option>
+              <option value={6}>2</option>
+              <option value={7}>3</option>
+              <option value={8}>4</option>
+              <option value={9}>5</option>
+              <option value={10}>6</option>
             </select>
             <select name="subject" onChange={(e) => handleFormChange(e)}>
               <option value="">Choose Subject</option>
-              <option value="Maths">Maths</option>
-              <option value="Physics">Physics</option>
-              <option value="Chemistry">Chemistry</option>
-              <option value="Biology">Biology</option>
-              <option value="Political science">Political science</option>
-              <option value="History">History</option>
+              <option value="DBMS">DBMS</option>
+          <option value="Operating System">Operating System</option>
+          <option value="Bussiness Management">Bussiness Management</option>
+          <option value="Biology">Biology</option>
+          <option value="Political science">Political science</option>
+          <option value="CBNST">CBNST</option>
             </select>
             <input
               placeholder="No.of Questions"
